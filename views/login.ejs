@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        /*.navbar
+            width: 100%;
+            height: 53px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 23px;
+            margin-left: 20px;
+            margin-right: 50px;
+        }*/
+        h1{
+            font-family: Andale, monospace;
+            font-size: 53px;
+            margin-top: -15px;
+        }
+        form label{
+            margin-top: -9px;
+            font-family: Impact, monospace;
+            font-size: 20px;
+            display: block;
+            margin-bottom: 2px;
+            margin-right: 182px;
+        }
+        form input {
+            width: 82%;
+            padding: 10px;
+            margin-bottom: 8px;
+            margin-top: -11px;
+            font-size: 16px;
+        }
+        form button {
+            width: 32%;
+            padding: 7px;
+            border-color: black;
+            border-radius: 10px;
+            background-color: #578591;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: -25px;
+        }
+
+        form button:hover {
+            background-color: #7ba4b6;
+        }
+
+
+
+        .login-container {
+            text-align: center;
+            background-color:#FFFFFFCC;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow:#00000019;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+        }
+        footer {
+            margin-top: auto;
+            background-color: #FFFFFF66;
+            text-align: center;
+            font-style: italic;
+            border-top: 1px solid #cccccc;
+            width: 100%;
+            height: 43px;
+        }
+        .message {
+            background-color: #FFFFFFCC;
+            border-radius: 10px;
+            padding: 6px;
+            margin-top: 23px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<img src="/pics/pic2.jpg" alt="Background Image" class="background-image">
+<!--<div class="navbar">
+    <a href="/register">Register</a>
+    <a href="#">Main</a>
+    <a href="#">Tours</a>
+    <a href="#">Cities</a>
+
+</div>-->
+<div class="login-container">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+<div class="message">
+    <% if (message) { %>
+        <p><%= message %></p>
+    <% } else { %>
+        <p>No message</p>
+    <% } %>
+</div>
+
+<footer>
+    <p>Omar Marzhan SE-2230</p>
+</footer>
+</body>
+
+</html>
+

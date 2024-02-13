@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+
+        h1 {
+            font-family: Andale, monospace;
+            font-size: 36px;
+            margin-top: -9px;
+        }
+
+        form label {
+            margin-top: -5px;
+            font-family: Impact, monospace;
+            font-size: 26px;
+            margin-bottom: 2px;
+            margin-right: 182px;
+            display: contents;
+        }
+
+        form input {
+            width: 82%;
+            padding: 13px;
+            margin-bottom: 8px;
+            margin-top: 6px;
+            font-size: 14px;
+        }
+
+        form button {
+            width: 32%;
+            padding: 7px;
+            border-color: black;
+            border-radius: 10px;
+            background-color: #578591;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 4px;
+        }
+
+        form button:hover {
+            background-color: #7ba4b6;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #FFFFFFCC;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: #00000019;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 442px;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #FFFFFF66;
+            text-align: center;
+            font-style: italic;
+            border-top: 1px solid #cccccc;
+            width: 100%;
+            height: 43px;
+        }
+
+        .navbar {
+            background-color: #FFFFFF7F;
+            width: 100%;
+            height: 53px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 23px;
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="navbar">
+    <a href="/register">Register</a>
+    <a href="/get-time">Time</a>
+    <a href="/city">Photo</a>
+    <a href="/city-info">City-info</a>
+    <a href="/history">History</a>
+    <a href="/admin">admin</a>
+</div>
+<img src="/pics/pic2.jpg" alt="Background Image" class="background-image">
+<div class="container">
+    <h1>Do you want to know what the weather is like outside?</h1>
+    <form id="weatherForm" action="/weather" method="post">
+        <label for="city">Enter city name:</label>
+        <input type="text" id="city" name="city">
+        <button type="submit">Get Weather</button>
+    </form>
+    <div id="weather-details">
+        <% if (weatherData) { %>
+            <div class="weather-info">
+                <h2>Weather in <%= weatherData.city %>:</h2>
+                <p>Temperature: <%= weatherData.temperature %> °C</p>
+
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('weatherForm');
+        const cityInput = document.getElementById('city');
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const city = cityInput.value.trim();
+
+            if (!city) {
+                alert('Please enter a city name.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/weather`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({city})
+                });
+                const weatherData = await response.json();
+
+                if (response.ok) {
+                    displayWeather(weatherData);
+                } else {
+                    alert('Error fetching weather data. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                alert('Error fetching weather data. Please try again.');
+            }
+        });
+
+        function displayWeather(weatherData) {
+            const cityName = weatherData.city;
+            const temperature = weatherData.temperature;
+
+            const weatherHTML = `
+                <div class="weather-info">
+                    <h2>Weather in ${cityName}:</h2>
+                    <p>Temperature: ${temperature} °C</p>
+                </div>
+            `;
+
+            const weatherDetails = document.getElementById('weather-details');
+            weatherDetails.innerHTML = weatherHTML;
+            document.querySelector('.weather-info').style.display = 'block';
+        }
+    });
+</script>
+</body>
+<footer><p>Omar Marzhan SE-2230</p>
+</footer>
+</html>
