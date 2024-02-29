@@ -1,0 +1,55 @@
+[33mcommit b2521357a1cb32958f699e030aa1b0d8ec3358ab[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Merge: 6d17dbd 3b3a72c
+Author: afnaifaoifa <220989@astanait.edu.kz>
+Date:   Fri Mar 1 02:09:25 2024 +0600
+
+    Merge branch 'main' of https://github.com/larrstylinson/assignment3
+
+[33mcommit 6d17dbd2b971cb9c2d6ac6e4c9883d051cb65ae2[m
+Author: afnaifaoifa <220989@astanait.edu.kz>
+Date:   Fri Mar 1 02:08:23 2024 +0600
+
+    first commit
+
+[33mcommit 3b3a72cc0320f4ef8b7406877902ab97069f5e97[m
+Author: larrstylinson <121245261+larrstylinson@users.noreply.github.com>
+Date:   Tue Feb 13 12:42:41 2024 +0600
+
+    Update ReadMe.md
+
+[33mcommit bd694d846de6553eafaf5e9e19bc4114fbed1568[m
+Author: larrystylinson <morzhfor@gmail.com>
+Date:   Tue Feb 13 12:25:34 2024 +0600
+
+    vercel
+
+[33mcommit d84e4ad022097ed1724397d24a89cfc81bfd79b6[m
+Merge: 567dd56 1a9f383
+Author: larrystylinson <morzhfor@gmail.com>
+Date:   Tue Feb 13 12:16:10 2024 +0600
+
+    vercel
+
+[33mcommit 567dd56f64785f890295c33bc3739d01e9355a16[m
+Author: larrystylinson <morzhfor@gmail.com>
+Date:   Tue Feb 13 12:11:06 2024 +0600
+
+    vercel
+
+[33mcommit 1a9f38345ee688fefe69fc81d81f104b6a22e1fa[m
+Author: larrstylinson <121245261+larrstylinson@users.noreply.github.com>
+Date:   Tue Feb 13 07:38:21 2024 +0600
+
+    Update vercel.json
+
+[33mcommit 7d2c0328b8868089c8bfe0dd92efa36942d976a5[m
+Author: larrystylinson <morzhfor@gmail.com>
+Date:   Tue Feb 13 06:52:45 2024 +0600
+
+    first commit
+
+[33mcommit cdb1abb0f8647b900f806b52c468ad3600cb4584[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: larrystylinson <morzhfor@gmail.com>
+Date:   Tue Feb 13 06:32:58 2024 +0600
+
+    added vercel.json
